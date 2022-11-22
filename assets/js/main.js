@@ -32,6 +32,7 @@ let cityName = "Berlin";
 
 button1.addEventListener(`click`, (event) => {
     event.preventDefault();
+
     cityName = cityInput.value;
 
     fetch(
@@ -41,12 +42,12 @@ button1.addEventListener(`click`, (event) => {
         .then((data1) => {
             cityOutput.innerHTML =
                 "<span style = 'color:rgb(183, 51, 51)'>undefined city</span>";
-            if (typeof data1[1] !== "undefined") {
+            if (typeof data1[0] !== "undefined") {
                 cityOutput.innerHTML = cityName;
             }
-            apiLat = data1[1].lat;
-            apiLon = data1[1].lon;
-            console.log(data1[1].lat);
+            apiLat = data1[0].lat;
+            apiLon = data1[0].lon;
+            console.log(data1[0].lat);
             calcLocation();
         });
 });
