@@ -36,7 +36,7 @@ button1.addEventListener(`click`, (event) => {
     cityName = cityInput.value;
 
     fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=4173aa10ec56577132130b02982fd329`
+        `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid={APIkey}`
     )
         .then((response) => response.json())
         .then((data1) => {
