@@ -132,6 +132,7 @@ article div {
     position: absolute;
     top: 10px;
     left: -10px;
+    transition: 2s;
 }
 
 #sky-clouds {

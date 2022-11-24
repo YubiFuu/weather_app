@@ -55,14 +55,14 @@ setInterval(calcLocation, 60000);
 calcLocation();
 function calcLocation() {
     fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${apiLat}&lon=${apiLon}&appid=4173aa10ec56577132130b02982fd329`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${apiLat}&lon=${apiLon}&appid={APIkey}`
     )
         .then((response) => response.json())
         .then((data) => {
-            const dateTime = new Date(data.dt * 1000);
-            const toUtc =
+            let dateTime = new Date(data.dt * 1000);
+            let toUtc =
                 dateTime.getTime() + dateTime.getTimezoneOffset() * 60000;
-            const currentLocalTime = toUtc + 1000 * data.timezone;
+            let currentLocalTime = toUtc + 1000 * data.timezone;
             const localTime = new Date(currentLocalTime);
             const sunrise = new Date((data.sys.sunrise + data.timezone) * 1000);
             const sunset = new Date((data.sys.sunset + data.timezone) * 1000);
